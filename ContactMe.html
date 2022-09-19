@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact Me</title>
+    </head>
+
+    <body>
+        <iframe width="420" height="315" src="https://www.youtube.com/embed/sD9gTAFDq40" frameborder="0" allowfullscreen></iframe>
+
+        <h1>Feedback</h1>
+        <form name="feedback">
+            <p>First Name: <input type="text" name="fname" placeholder="anonymous" required></p>
+            <p>Last Name: <input type="text" name="lname" placeholder="anonymous" required></p>
+            <p>Email: <input type="password" name="mail" placeholder="name@domain.com"></p>
+            <p>Date: <input type="date" name="selectdate"></p>
+            <p> <b>Are you going to recommend this website to other people?</b> </p>
+            <p><input type="radio" name="yes" value="yes"> Yes <input type="radio" name="no" value="no" > No </p>
+            <p> <b>What is your favorite website?</b> </p>
+            <p> 
+            <select name="website" id="webmenu">
+                <option value="google">Google</option>
+                <option value="youtube">Youtube</option>
+                <option value="twitter">Twitter</option>
+                <option value="facebook">Facebook</option>
+                <option value="twitch">Twitch</option>
+            </select></p>
+            <p> <b>What search engine do you use?</b> </p>
+            <p><input type="checkbox" name="website" value="google"> Google <input type="checkbox" name="website" value="bing"> Bing 
+                <input type="checkbox" name="website" value="yahoo"> Yahoo <input type="checkbox" name="website" value="other"> Other </p>
+            <p> <b>Please rate my website from 1 to 10:</b> </p>
+            <p><input type="range" id="rating" name="rating" min="1" max="10"></p>
+            <p> <b>Please leave any comments down below:</b> </p>
+            <textarea name="Comments" cols="80" rows="9"></textarea>
+            <p><input type="submit" value="Submit"> <input type="reset" value="Reset"></p>
+        </form>
+    </body>
