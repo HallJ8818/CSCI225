@@ -1,0 +1,156 @@
+div.introduction{
+    position: absolute;
+    top: 10%
+}
+
+p{
+    top: 0%;
+    left: 0%;
+    width: 70%;
+    float: left;
+}
+
+img{
+    float:right;
+    height: 100%;
+    width: 12%;
+}
+
+div.navbar{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 27%;
+}
+
+div.assignment{
+    position: absolute;
+    top: 36.5%;
+    right: -5.75%;
+    width: 35%;
+}
+
+div.portfolio{
+    position: absolute;
+    top: 36.5%;
+    width: 70%;
+}
+
+div.schedule{
+    position: absolute;
+    top: 74%;
+    width: 70%;
+}
+
+footer{
+    position: fixed;
+    bottom: 0%;
+    left: 50%;
+}
+
+div.contact{
+    position: absolute;
+    top: 57%;
+    width: 70%;
+}
+
+/* Style */
+
+p{
+    font-family: Fanwood + Text;
+    line-height: 35px;
+    text-align: left;
+}
+
+ul, ol, li{
+    color: rgba(16, 112, 116, 0.9);
+    font-weight: 500;
+}
+
+h1{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px #000000;
+    width: 35%;
+    border-radius: 15px;
+    border-top: 3px solid #fff;
+}
+
+a:link{
+    text-decoration: none;
+    color: rgba(45, 163, 118, 0.9);
+}
+
+a:visited{
+    text-decoration: none;
+    color: rgba(0, 53, 33, 0.9);
+}
+
+a:hover{
+    text-decoration: none;
+    color: rgba(93, 209, 27, 0.9);
+}
+
+a:active{
+    text-decoration: none;
+    color: rgba(0, 183, 255, 0.9);
+}
+
+ul#nav{
+    min-width: 1000px;
+	padding-top: 10px;
+    list-style-image: linear-gradient(to left bottom, red, blue);
+}
+
+ul#nav li {
+    display: inline;
+    padding: 50px;
+    border-radius: 15px;
+    border-top: 3px solid #fff;
+}
+
+body{
+    background-image: url('../img/background.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+footer{
+    background-color: red;
+}
+
+div.portfolio, div.contact, div.schedule, div.assignment, div.introduction {
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    border-top: 3px solid #fff;
+}
+
+p::first-letter{
+    text-transform: uppercase;
+    font-size: 200%;
+}
+
+div.portfolio>p:first-of-type{
+    text-shadow: 1px 1px #000000;
+}
+
+.even{
+    background-color: cornsilk;
+}
+
+table, th, td{
+    border: 1px solid;
+    padding: 5px;
+    vertical-align: 50%;
+    empty-cells: show;
+}
+
+h1{
+    transition: transform 4s;
+}
+
+h1:hover{
+    transform: scale(1.2,1.2);
+}
