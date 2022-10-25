@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BMI Calculator</title>
+    </head>
+
+    <style>
+        .vertical {
+            position:absolute;
+            left: 46%;
+            top: 10%;
+        }
+    </style>
+
+    <style>
+        .picture {
+            height: 50px;
+            left: 50%;
+            top: 20%;
+            position: absolute;
+        }
+    </style>
+
+    <style>
+        .label {
+            position:absolute;
+            left: 50%;
+            top: 10%;
+        }
+    </style>
+
+
+    <body>
+        
+        <script>
+            function calculate() {
+                    var n1 = parseFloat(document.getElementsByName('weight')[0].value);
+                    var n2 = parseFloat(document.getElementsByName('height')[0].value);
+                    var ans = (n1 * 703) / (n2*n2);
+                    document.getElementById('result').textContent = "The answer is " + ans.toFixed(2);
+                    if (Number.isInteger(n1) == false || Number.isInteger(n2) == false) {
+                        window.alert("Please input a number for weight and height");
+                    }
+                    if (ans >= 25) {
+                        window.alert("You are overweight or obese")
+                    }
+
+                    if (ans <= 18.5) {
+                        document.getElementById("mii").width = "50";
+                                                
+                    }
+
+                    if (ans > 18.5 && ans < 25) {
+                        document.getElementById("mii").width = "100"; 
+                        
+                    }
+
+                    if (ans >= 25 && ans < 30) {
+                        document.getElementById("mii").width = "150"; 
+                        
+                    }
+
+                    if (ans >= 30) {
+                        document.getElementById("mii").width = "200"; 
+                        
+                    }
+                }
+            document.writeln("<h1> BMI Calculator </h1>");
+
+        </script>
+        <form>
+            <p><input type="text" name="name" placeholder="Enter your name"></p>
+            <p id="message">
+
+            </p>
+        </form>
+        <script>
+               function welcomemessage(){
+                    var pname = document.getElementById('name').value;
+                   document.getElementById('message').innerHTML="Welcome <b>"+pname+"</b>!";
+               }
+               var fE = document.getElementById('name');
+               if (fE) {
+                   fE.addEventListener('blur',welcomemessage,false);
+               }
+        </script>
+        <p><input type="text" name="weight" placeholder="Enter your weight"> Weight in Pounds</p>
+        <p><input type="text" name="height" placeholder="Enter your height"> Height in Inches</p>
+        <p> 
+            <select name="age" id="agemenu">
+                <option value="below20">Below 20</option>
+                <option value="20-30">20-30</option>
+                <option value="30-40">30-40</option>
+                <option value="40-50">40-50</option>
+                <option value="above50">Above 50</option>
+            </select>Age
+        </p>
+
+        <script>
+            function below(){
+                var bage = document.getElementById('agemenu').value;
+                if (bage == "Below 20") {
+                    var a = document.createElement('a'); 
+                    var link = document.createTextNode("Please use BMI percentile chart if below 20");
+                    a.appendChild(link);
+                    a.title = "Please use BMI percentile chart if below 20"; 
+                    a.href = "https://www.cdc.gov/growthcharts/data/set1clinical/cj41l023.pdf";
+                    document.body.appendChild(a);
+                }
+
+            }
+            document.getElementById('agemenu').addEventListener('change',below,false);
+        </script>
+
+        <p><input type="button" value="Compute BMI" onclick="calculate();"></p>
+        <p>Your BMI is: <p id = "result"> </p> </p>
+
+        <div class = "vertical">
+            <img id="line" src="img/line.png" height="50" width="100">
+        </div>
+
+        <div class="label">
+            <p>Underweight Normal Weight Overwieght Obese</p>
+        </div>
+
+        <div class = "picture">
+            <img id = "mii" src="img/Mii.jpg" width="100" height="150">
+        </div>
+
+    </body>
