@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Loan Calculator</title>
+        <link rel="stylesheet" href=" css/loancalculator.css ">
+    </head>
+
+    <body>
+        <div id="loan">
+            <form>
+                <h1>Loan Information</h1>
+                <p>Loan Amount: <input type="text" name="lamount"></p>
+                <p>Interest rate(annual): <input type="text" name="irate"></p>
+                <p>Loan Term(in years): <input type="text" name="lterm"></p>
+                <p>Start Date:  
+                    <select name="month" id="monthmenu">
+                        <option value="Jan">January</option>
+                        <option value="Feb">February</option>
+                        <option value="Mar">March</option>
+                        <option value="Apr">April</option>
+                        <option value="May">May</option>
+                        <option value="Jun">June</option>
+                        <option value="Jul">July</option>
+                        <option value="Aug">August</option>
+                        <option value="Sep">September</option>
+                        <option value="Oct">October</option>
+                        <option value="Nov">November</option>
+                        <option value="Dec">December</option>
+                    </select>
+                    <select name="year" id="yearmenu">
+                        <option value="twentytwo">2022</option>
+                        <option value="twentyone">2021</option>
+                        <option value="twenty">2020</option>
+                        <option value="nineteen">2019</option>
+                        <option value="eighteen">2018</option>
+                        <option value="seventeen">2017</option>
+                        <option value="sixteen">2016</option>
+                        <option value="fifthteen">2015</option>
+                        <option value="fourteen">2014</option>
+                        <option value="thirteen">2013</option>
+                        <option value="twelve">2012</option>
+                        <option value="eleven">2011</option>
+                        <option value="ten">2010</option>
+                        <option value="nine">2009</option>
+                        <option value="eight">2008</option>
+                        <option value="seven">2007</option>
+                        <option value="six">2006</option>
+                        <option value="five">2005</option>
+                        <option value="four">2004</option>
+                        <option value="three">2003</option>
+                        <option value="two">2002</option>
+                        <option value="one">2001</option>
+                        <option value="zero">2000</option>
+                    </select>
+                </p>
+                <script>
+                    function calculate() {
+                        var n1 = parseFloat(document.getElementsByName('lamount')[0].value);
+                        var n2 = parseFloat(document.getElementsByName('irate')[0].value);
+                        var n3 = parseFloat(document.getElementsByName('lterm')[0].value);
+                        var yr = document.getElementById('yearmenu');
+                        var MIR = (n2*0.01)/12;
+                        var MP = n1*MIR*Math.pow(1+MIR,n3*12)/(Math.pow(1+MIR,n3*12)-1);
+                        var balance= n1;
+                        var IPPM = balance*MIR;
+                        var PPPM = MP-IPPM;
+                        document.getElementById('result').textContent = "Monthly Payment: " + MP.toFixed(2);
+                        for(var n = 0; n<12; n++){
+                            balance = balance - PPPM;
+                            IPPM = balance*MIR;
+                            PPPM = MP-IPPM;
+                            yr += 1;
+                        }
+                        var outputlist = "<td><table border="+"1"+" id='pmtTab'><tr style='background-color:DeepSkyBlue'><td id='date'>Date</td><td id='interest'>Interest</td><td id='principal'>Principal</td><td id='blnce'>Balance</td></tr>";
+                        for(var i=0;i<n3;i++) {
+                            outputlist +="<tr>";
+                            for(var c=0;c<4;c++){
+                                outputlist +="<td style='background-color:LightBlue'>";
+                                if (c=0) {
+                                    outputlist +=yr;
+                                } else if(c=1){
+                                    outputlist +=IPPM.toFixed(2);
+                                } else if(c=2){
+                                    outputlist +=PPPM.toFixed(2);
+                                } else if(c=3){
+                                    outputlist +=balance.toFixed(2);
+                                }
+                                outputlist +="</td>";
+                            }
+                            outputlist +="</tr>";
+                            for(var n = 0; n<12; n++){
+                                balance = balance - PPPM;
+                                IPPM = balance*MIR;
+                                PPPM = MP-IPPM;
+                                yr += 1;
+                            }
+                        }
+                        outputlist +="</table>";
+                        document.getElementById('loan').innerHTML = outputlist;
+                    }
+                </script>
+                <p><input type="button" value="Calculate" onclick="calculate();"></p>
+                <p id="result"></p>
+            </form>
+        </div>
+    </body>
+
+</html>

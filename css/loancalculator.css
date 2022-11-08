@@ -1,0 +1,26 @@
+p, h1{
+    position: relative;
+    left: 0%;
+    bottom: 50%;
+}
+
+form, table{
+    position:relative;
+    left: 70%;
+    top: 50%;
+}
+
+body{
+    background-image: url('../img/Estate.jpg');
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+form{
+    background-color: aliceblue;
+    width: 500px;
+}
+
+h1{
+    background-color: deepskyblue;
+}
